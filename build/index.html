@@ -24,7 +24,57 @@
                 </div>
                 <div class="col-md-3">
                     <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> add song</button>
+                    <div id="song-popup" class="popup panel vh">
+                        <h5>Add new song to the list</h5>
+                        <div class="m1">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <label for="amount">Song title</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </span>
+                                <input type="text" class="form-control" id="amount" autocomplete="off">
+                                <div class="control-validation"></div>
+                            </div>
+                        </div>
+                        <div class="m1">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <label for="amount">Song artist</label>&nbsp;&nbsp;&nbsp;
+                            </span>
+                                <input type="text" class="form-control" id="amount" autocomplete="off">
+                                <div class="control-validation"></div>
+                            </div>
+                        </div>
+                        <div class="m1">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <label for="amount">Release year</label>
+                            </span>
+                                <input type="text" class="form-control" id="amount" autocomplete="off">
+                                <div class="control-validation"></div>
+                            </div>
+                        </div>
+                        <div class="m1 text-right">
+                            <button class="btn btn-success">add</button>
+                            <button class="btn btn-danger">cancel</button>
+                        </div>
+                    </div>
                     <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> new playlist</button>
+                    <div id="playlist-popup" class="popup panel vh">
+                        <h5>Add new playlist</h5>
+                        <div class="m1">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                <label for="amount">Playlist name</label>
+                            </span>
+                                <input type="text" class="form-control" id="amount" autocomplete="off">
+                                <div class="control-validation"></div>
+                            </div>
+                        </div>
+                        <div class="m1 text-right">
+                            <button class="btn btn-success">add</button>
+                            <button class="btn btn-danger">cancel</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -40,56 +90,10 @@
         </div>
         <div class="row">
             <div class="col-md-5 col-md-offset-1">
-                <div id="song-popup" class="popup panel">
-                    <h5>Add new song to the list</h5>
-                    <div class="m1">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <label for="amount">Song title</label>
-                            </span>
-                            <input type="text" class="form-control" id="amount" autocomplete="off">
-                            <div class="control-validation"></div>
-                        </div>
-                    </div>
-                    <div class="m1">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <label for="amount">Song artist</label>
-                            </span>
-                            <input type="text" class="form-control" id="amount" autocomplete="off">
-                            <div class="control-validation"></div>
-                        </div>
-                    </div>
-                    <div class="m1">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <label for="amount">Release year</label>
-                            </span>
-                            <input type="text" class="form-control" id="amount" autocomplete="off">
-                            <div class="control-validation"></div>
-                        </div>
-                    </div>
-                    <div class="m1 text-right">
-                        <button class="btn btn-success">add</button>
-                    </div>
-                </div>
+
             </div>
             <div class="col-md-5">
-                <div id="playlist-popup" class="popup panel">
-                    <h5>Add new playlist</h5>
-                    <div class="m1">
-                        <div class="input-group">
-                            <span class="input-group-addon">
-                                <label for="amount">Playlist name</label>
-                            </span>
-                            <input type="text" class="form-control" id="amount" autocomplete="off">
-                            <div class="control-validation"></div>
-                        </div>
-                    </div>
-                    <div class="m1 text-right">
-                        <button class="btn btn-success">add</button>
-                    </div>
-                </div>
+
             </div>
         </div>
         <div class="row">

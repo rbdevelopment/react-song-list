@@ -83,6 +83,7 @@ label
 .popup h5
 {
     margin: 0px;
+    color: $grey;
 }
 .panel {
     overflow: visible;
@@ -93,4 +94,17 @@ label
     opacity: 1;
     background: #fff;
     border: 1px solid #333;
+    margin-top:1px;
+}
+#song-popup
+{
+    min-width:400px;
+}
+#playlist-popup
+{
+    min-width:400px;
+}
+.vh
+{
+    visibility: hidden;
 }
