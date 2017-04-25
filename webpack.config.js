@@ -13,6 +13,11 @@ module.exports = {
         loaders: [
             {
                 test: /\.jsx?$/,
+                loaders: ['eslint-loader'],
+                include: [path.join(__dirname, 'app')]
+            },
+            {
+                test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
@@ -26,13 +31,6 @@ module.exports = {
             }
         ]
     },
-    preLoaders: [
-        {
-            test: /\.js$/,
-            loaders: ['eslint'],
-            include: [new RegExp(path.join(__dirname, 'app'))]
-        }
-    ],
     devServer: {
         port: 3000,
         contentBase: './build',
