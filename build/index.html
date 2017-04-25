@@ -19,8 +19,11 @@
     <section id='top'>
         <div class="container">
             <div class="row">
-                <div class="col-md-offset-1">
+                <div class="col-md-8 col-md-offset-1">
                     Developed by Rafał Bielec (github.com/rbdevelopment)
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> add song</button>
                 </div>
             </div>
         </div>
@@ -35,7 +38,36 @@
             </section>
         </div>
         <div class="row">
-            <section class="col-md-10 col-md-offset-1" id='songs-container'>
+            <section class="col-md-10 col-md-offset-1">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <table class="table song-list">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Artist</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John's song</td>
+                                    <td>John</td>
+                                    <td>2017</td>
+                                </tr>
+                                <tr>
+                                    <td>John's song</td>
+                                    <td>John</td>
+                                    <td>2017</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-6">
+                    </div>
+                </div>
+
+
                 <!-- React application renders here -->
                 <div id="app"></div>
                 <script type="text/javascript" src="bundle.js"></script>

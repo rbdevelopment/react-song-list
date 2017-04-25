@@ -1,12 +1,17 @@
 $white: #F0F0F0;
 $grey: #494949;
-$blue: #003BB1;
+$blue: #3571B0;
+$light-blue: #429DFF;
 $dark-red: #931600;
 body
 {
     background: $white;
     font-family: 'Muli', sans-serif;
     font-size: 16px;
+}
+.glyphicon
+{
+    color: $white;
 }
 .m1
 {
@@ -53,4 +58,9 @@ footer
 }
 @media only screen and (max-device-width: 480px) {      
     #main { -webkit-text-size-adjust:100% }               
+}
+.song-list td
+{
+    background: $light-blue;
+    color: $white;
 }
