@@ -19,11 +19,12 @@
     <section id='top'>
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-1">
+                <div class="col-md-7 col-md-offset-1">
                     Developed by Rafał Bielec (github.com/rbdevelopment)
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-3">
                     <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> add song</button>
+                    <button class="btn btn-primary"><i class="glyphicon glyphicon-plus"></i> new playlist</button>
                 </div>
             </div>
         </div>
@@ -38,12 +39,68 @@
             </section>
         </div>
         <div class="row">
+            <div class="col-md-5 col-md-offset-1">
+                <div id="song-popup">
+                    <h5>Add new song to the list</h5>
+                    <div class="m1">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <label for="amount">Song title</label>
+                            </span>
+                            <input type="text" class="form-control" id="amount" autocomplete="off">
+                            <div class="control-validation"></div>
+                        </div>
+                    </div>
+                    <div class="m1">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <label for="amount">Song artist</label>
+                            </span>
+                            <input type="text" class="form-control" id="amount" autocomplete="off">
+                            <div class="control-validation"></div>
+                        </div>
+                    </div>
+                    <div class="m1">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <label for="amount">Release year</label>
+                            </span>
+                            <input type="text" class="form-control" id="amount" autocomplete="off">
+                            <div class="control-validation"></div>
+                        </div>
+                    </div>
+                    <div class="m1 text-right">
+                        <button class="btn btn-success">add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div id="playlist-popup">
+                    <h5>Add new playlist</h5>
+                    <div class="m1">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <label for="amount">Playlist name</label>
+                            </span>
+                            <input type="text" class="form-control" id="amount" autocomplete="off">
+                            <div class="control-validation"></div>
+                        </div>
+                    </div>
+                    <div class="m1 text-right">
+                        <button class="btn btn-success">add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <section class="col-md-10 col-md-offset-1">
                 <div class="row">
                     <div class="col-xs-6">
-                        <table class="table song-list">
+                        <h4 class="text-center">ALL YOUR SONGS</h4>
+                        <table class="table table-condensed song-list">
                             <thead>
                                 <tr>
+                                    <th>Remove</th>
                                     <th>Title</th>
                                     <th>Artist</th>
                                     <th>Year</th>
@@ -51,11 +108,21 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>
+                                        <button class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </button>
+                                    </td>
                                     <td>John's song</td>
                                     <td>John</td>
                                     <td>2017</td>
                                 </tr>
                                 <tr>
+                                    <td>
+                                        <button class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </button>
+                                    </td>
                                     <td>John's song</td>
                                     <td>John</td>
                                     <td>2017</td>
@@ -64,10 +131,31 @@
                         </table>
                     </div>
                     <div class="col-xs-6">
+                        <h4 class="text-center">PLAYLIST 1</h4>
+                        <table class="table table-condensed song-list">
+                            <thead>
+                                <tr>
+                                    <th>Remove</th>
+                                    <th>Title</th>
+                                    <th>Artist</th>
+                                    <th>Year</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <button class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                        </button>
+                                    </td>
+                                    <td>Some other song</td>
+                                    <td>John</td>
+                                    <td>2015</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-
-
                 <!-- React application renders here -->
                 <div id="app"></div>
                 <script type="text/javascript" src="bundle.js"></script>
