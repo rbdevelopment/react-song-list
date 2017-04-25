@@ -4,7 +4,7 @@
   "description": "Example application using drag-and-drop functionality",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/rbdevelopment/react-song-list/issues"
   },
-  "homepage": "https://github.com/rbdevelopment/react-song-list#readme"
+  "homepage": "https://github.com/rbdevelopment/react-song-list#readme",
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-google": "^0.7.1",
+    "webpack": "^2.4.1"
+  }
 }
