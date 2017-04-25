@@ -1,0 +1,56 @@
+$white: #F0F0F0;
+$grey: #494949;
+$blue: #003BB1;
+$dark-red: #931600;
+body
+{
+    background: $white;
+    font-family: 'Muli', sans-serif;
+    font-size: 16px;
+}
+.m1
+{
+    margin-top:1em;
+}
+.control-validation
+{
+    color: $dark-red;
+    font-weight: bold;
+    display: block;
+    text-indent: 0.3em;
+    font-size:0.9em;
+}
+#top
+{
+    background: $blue;
+    min-height: 40px;
+    color: $white;
+    font-weight: bold;
+    line-height:2em;
+    font-size:1.1em;
+}
+#title h2
+{
+    margin:0;
+    font-weight: bold;
+    margin-top:1em;
+}
+#title h4
+{
+    margin:0;
+    margin-bottom:1em;
+    color: $grey;
+}
+#info-container
+{
+    padding-right:1em;
+    text-align: justify;
+}
+footer
+{
+    font-size:0.8em;
+    margin-bottom:2em;
+}
+@media only screen and (max-device-width: 480px) {      
+    #main { -webkit-text-size-adjust:100% }               
+}

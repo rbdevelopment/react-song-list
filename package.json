@@ -8,7 +8,9 @@
     "start": "webpack-dev-server"
   },
   "babel": {
-    "presets" : ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "repository": {
     "type": "git",
@@ -29,6 +31,10 @@
     "eslint": "^3.19.0",
     "eslint-config-google": "^0.7.1",
     "webpack": "^2.4.1",
-    "webpack-dev-server": "^2.4.4"
+    "webpack-dev-server": "^2.4.4",
+    "node-sass": "^4.5.2",
+    "css-loader": "^0.28.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1"
   }
 }
