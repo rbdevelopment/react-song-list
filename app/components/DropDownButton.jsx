@@ -12,12 +12,8 @@ class DropDownButton extends React.Component {
         };
     }
 
-    expand = () => {
-        this.setState({ expanded: true });
-    }
-    collapse = () => {
-        this.setState({ expanded: false });
-    }
+    expand = () => this.setState({ expanded: true });
+    collapse = () => this.setState({ expanded: false });
 
     onClick = () => {
         if (this.state.expanded)
