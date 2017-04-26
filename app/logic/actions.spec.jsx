@@ -23,7 +23,7 @@ describe('removeSong action', () => {
 });
 
 describe('removeSongGlobally action', () => {
-    it('should set action type to remove song', () => {
+    it('should set action type to remove song globally', () => {
         expect(actions.removeSongGlobally('Merry go round', 'Popular singers', 1901)).toEqual({
             type: 'remove song globally',
             title: 'Merry go round',
