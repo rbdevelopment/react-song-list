@@ -5,16 +5,16 @@ import AddSong from './components/AddSong';
 import AddPlaylist from './components/AddPlaylist';
 
 ReactDOM.render(
-  <Playlists id="playlists"></Playlists>,
+  <Playlists />,
   document.getElementById('playlists')
 );
 
 ReactDOM.render(
-  <AddSong></AddSong>,
+  <AddSong />,
   document.getElementById('add-song')
 );
 
 ReactDOM.render(
-  <AddPlaylist></AddPlaylist>,
+  <AddPlaylist />,
   document.getElementById('add-playlist')
 );

@@ -2,17 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside'
 import { dropDownClassName } from './ui';
+import DropDownButtonContent from './DropDownButtonContent';
 
-//add class open to btn-group
 class DropDownButton extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            expanded: false
+            expanded: false,
+            data: this.prepareData(props.items || []) || [],
+            content: 'select playlist'
         };
     }
-
+    
+    prepareData = (items) => items.map((item, index) => {
+        return { key: index, value: item };
+    });
     expand = () => this.setState({ expanded: true });
     collapse = () => this.setState({ expanded: false });
     onClick = () => {
@@ -22,6 +27,11 @@ class DropDownButton extends React.Component {
             this.expand();
     }
     handleClickOutside = () => this.collapse();
+    select = (value) => (e) => {
+        e.preventDefault();
+        this.setState({content: value});
+        this.collapse();
+    }
 
     render() {
         return (
@@ -31,13 +41,14 @@ class DropDownButton extends React.Component {
                     className="btn btn-default"
                     aria-haspopup="true"
                     aria-expanded={this.state.expanded}
-                    onClick={this.onClick}>
-                    select playlist <span className="caret"></span>
-                </button>
+                    onClick={this.onClick}><DropDownButtonContent text={this.state.content} /></button>
                 <ul className="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
+                    {this.state.data.map((item) => {
+                        return <li key={item.key}><a
+                            onClick={this.select(item.value)} href="#">
+                            {item.value}</a>
+                        </li>;
+                    })}
                 </ul>
             </div>
         )
@@ -45,7 +56,9 @@ class DropDownButton extends React.Component {
 }
 
 DropDownButton.propTypes = {
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
+    items: PropTypes.array,
+    onItemChanged: PropTypes.func
 };
 
 export default onClickOutside(DropDownButton);
