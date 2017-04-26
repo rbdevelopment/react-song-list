@@ -21,6 +21,7 @@ describe('removeSong action', () => {
         });
     });
 });
+
 describe('removeSongGlobally action', () => {
     it('should set action type to remove song', () => {
         expect(actions.removeSongGlobally('Merry go round', 'Popular singers', 1901)).toEqual({
