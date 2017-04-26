@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class SongPanel extends React.Component {
     render() {
-        return (<div id="song-popup" className="popup panel">
+        return (<div id="song-popup" className="popup panel hide">
             <h5>Add new song to the list</h5>
             <div className="m1">
                 <div className="input-group">
