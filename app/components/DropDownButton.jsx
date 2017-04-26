@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import onClickOutside from 'react-onclickoutside'
 import { dropDownClassName } from './ui';
 
 //add class open to btn-group
@@ -20,6 +21,7 @@ class DropDownButton extends React.Component {
         else
             this.expand();
     }
+    handleClickOutside = () => this.collapse();
 
     render() {
         return (
@@ -46,4 +48,4 @@ DropDownButton.propTypes = {
     id: PropTypes.string.isRequired
 };
 
-export default DropDownButton;
+export default onClickOutside(DropDownButton);
