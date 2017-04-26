@@ -1,14 +1,31 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { dropDownClassName } from './ui';
 
 //add class open to btn-group
 class DropDownButton extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            expanded: false
+        };
     }
+
+    onClick = () => {
+        let inverted = !this.state.expanded;
+        this.setState({expanded : inverted});
+    }
+
     render() {
         return (
-            <div className="btn-group">
-                <button type="button" className="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div className={dropDownClassName(this.state.expanded)}>
+                <button id={this.props.id}
+                    type="button"
+                    className="btn btn-default"
+                    aria-haspopup="true"
+                    aria-expanded={this.state.expanded}
+                    onClick={this.onClick}>
                     select playlist <span className="caret"></span>
                 </button>
                 <ul className="dropdown-menu">
@@ -20,5 +37,9 @@ class DropDownButton extends React.Component {
         )
     }
 }
+
+DropDownButton.propTypes = {
+    id: PropTypes.string.isRequired
+};
 
 export default DropDownButton;

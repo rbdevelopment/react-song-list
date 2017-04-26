@@ -2,7 +2,7 @@ import React from 'react';
 import DropDownButton from './DropDownButton';
 
 const Playlists = () => (
-    <DropDownButton></DropDownButton>
+    <DropDownButton id="playlists"></DropDownButton>
 );
 
 export default Playlists;
