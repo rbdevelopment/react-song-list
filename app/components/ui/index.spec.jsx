@@ -1,4 +1,4 @@
-import { dropDownClassName } from './ui';
+import { dropDownClassName } from './index';
 
 describe("dropDownClassName function", () => {
     it("should return only btn-group when passed false", () => {

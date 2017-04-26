@@ -1,8 +1,13 @@
 import React from 'react';
-import DropDownButton from './DropDownButton';
+import PropTypes from 'prop-types';
+import DropDownButtonContainer from '../containers/DropDownButtonContainer';
 
 const Playlists = () => (
-    <DropDownButton id="playlists" items={['playlist 1', 'playlist 2']}></DropDownButton>
+    <DropDownButtonContainer id="playlists" ></DropDownButtonContainer>
 );
+
+Playlists.propTypes = {
+    items: PropTypes.array
+};
 
 export default Playlists;

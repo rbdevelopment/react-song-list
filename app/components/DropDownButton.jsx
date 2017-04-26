@@ -31,6 +31,7 @@ class DropDownButton extends React.Component {
         e.preventDefault();
         this.setState({content: value});
         this.collapse();
+        this.onItemChanged(value);
     }
 
     render() {
