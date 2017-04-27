@@ -1,2 +1,5 @@
-# react-song-list
-Example application using drag-and-drop functionality
+# Song list application
+
+Example application in React with drag-and-drop functionality.
+
+I'm aiming for 100% test coverage in [https://facebook.github.io/jest](jest).
