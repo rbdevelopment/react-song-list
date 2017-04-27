@@ -11,7 +11,7 @@ class DropDownButton extends React.Component {
         this.state = {
             expanded: false,
             items: this.prepareData(props.items) || [],
-            content: this.props.selectedPlaylist || 'select playlist'
+            content: this.props.selectedPlaylist
         };
     }
 

@@ -3,7 +3,7 @@ import * as constants from './constants';
 const initialState = {
     playlists: ['wedding', 'gig in Manchester'],
     songs: [],
-    selectedPlaylist: '',
+    selectedPlaylist: 'select playlist',
     playlistPanelVisible: false,
     songPanelVisible: false
 };
