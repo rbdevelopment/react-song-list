@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Playlists from './components/Playlists';
-import AddSong from './components/AddSong';
-import AddPlaylist from './components/AddPlaylist';
+import DropDownButtonContainer from './containers/DropDownButtonContainer';
+import AddPlaylistContainer from './containers/AddPlaylistContainer';
+import AddSongContainer from './containers/AddSongContainer';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
@@ -16,21 +16,21 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Playlists />
+    <DropDownButtonContainer />
   </Provider>,
   document.getElementById('playlists')
 );
 
 ReactDOM.render(
   <Provider store={store}>
-    <AddSong />
+    <AddSongContainer />
   </Provider>,
   document.getElementById('add-song')
 );
 
 ReactDOM.render(
   <Provider store={store}>
-    <AddPlaylist />
+    <AddPlaylistContainer />
   </Provider>,
   document.getElementById('add-playlist')
 );

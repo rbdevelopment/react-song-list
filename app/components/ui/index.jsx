@@ -5,3 +5,10 @@ export function dropDownClassName(expanded) {
     css['open'] = expanded;
     return classnames(css);
 }
+export function panelClassName(expanded) {
+    const css = {};
+    css['popup'] = true;
+    css['panel'] = true;
+    css['hide'] = !expanded;
+    return classnames(css);
+}

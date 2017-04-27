@@ -3,7 +3,8 @@ import DropDownButton from '../components/DropDownButton';
 import { selectPlaylist } from '../logic/actions';
 
 const mapStateToProps = (state) => ({
-    item: state.playlists
+    items: state.playlists,
+    selectedPlaylist: state.selectedPlaylist
 });
 
 const mapDispatchToProps = (dispatch) => ({

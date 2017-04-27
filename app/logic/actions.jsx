@@ -6,6 +6,7 @@ exports.addSong = (title, artist, year) => ({
   artist,
   year
 });
+
 exports.removeSong = (title, artist, year) => ({
   type: constants.REMOVE_SONG,
   title,
@@ -33,4 +34,9 @@ exports.selectPlaylist = (name) => ({
 exports.removePlaylist = (name) => ({
   type: constants.REMOVE_PLAYLIST,
   name
+});
+
+exports.changeVisibility = (panelType) => ({
+  type: constants.VISIBILITY,
+  panelType
 });

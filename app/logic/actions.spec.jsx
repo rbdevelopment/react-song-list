@@ -60,3 +60,21 @@ describe('removePlaylist action', () => {
         });
     });
 });
+
+describe('changeVisibility action with playlist type', () => {
+    it('should set action type to visibility and panelType to playlist type', () => {
+        expect(actions.changeVisibility(constants.PLAYLIST_TYPE)).toEqual({
+            type: constants.VISIBILITY,
+            panelType: constants.PLAYLIST_TYPE
+        });
+    });
+});
+
+describe('changeVisibility action with song type', () => {
+    it('should set action type to visibility and panelType to song type', () => {
+        expect(actions.changeVisibility(constants.SONG_TYPE)).toEqual({
+            type: constants.VISIBILITY,
+            panelType: constants.SONG_TYPE
+        });
+    });
+});

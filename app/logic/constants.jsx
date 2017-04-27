@@ -1,7 +1,10 @@
 
-exports.SELECT_PLAYLIST = Symbol('select playlist');
-exports.ADD_SONG = Symbol('add song');
-exports.REMOVE_SONG = Symbol('remove song');
-exports.REMOVE_SONG_GLOBALLY = Symbol('remove song globally');
-exports.ADD_PLAYLIST = Symbol('add playlist');
-exports.REMOVE_PLAYLIST = Symbol('remove playlist');
+exports.SELECT_PLAYLIST = 'select playlist';
+exports.ADD_SONG = 'add song';
+exports.REMOVE_SONG = 'remove song';
+exports.REMOVE_SONG_GLOBALLY = 'remove song globally';
+exports.ADD_PLAYLIST = 'add playlist';
+exports.REMOVE_PLAYLIST = 'remove playlist';
+exports.VISIBILITY = 'visibility';
+exports.PLAYLIST_TYPE = 'playlist type';
+exports.SONG_TYPE = 'song type';
