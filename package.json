@@ -10,7 +10,9 @@
   },
   "babel": {
     "presets": [
-      "es2015", "react", "stage-0"
+      "es2015",
+      "react",
+      "stage-0"
     ]
   },
   "repository": {
@@ -34,7 +36,6 @@
     "babel-preset-stage-0": "^6.0.15",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.0",
-    "enzyme": "^2.8.2",
     "eslint": "^3.19.0",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-jest": "^19.0.1",
@@ -43,10 +44,10 @@
     "node-sass": "^4.5.2",
     "react": "^15.5.4",
     "react-addons-test-utils": "^15.5.1",
-    "react-bootstrap": "^0.30.10",
     "react-dom": "^15.5.4",
     "react-onclickoutside": "^5.11.1",
     "react-redux": "^5.0.4",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.6.0",
     "redux-devtools-extension": "^2.13.0",
     "redux-logger": "^3.0.1",
