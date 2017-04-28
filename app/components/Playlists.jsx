@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import DropDownButtonContainer from '../containers/DropDownButtonContainer';
 
 const Playlists = () => (
-    <DropDownButtonContainer id="playlists" ></DropDownButtonContainer>
+    <DropDownButtonContainer />
 );
 
 Playlists.propTypes = {
