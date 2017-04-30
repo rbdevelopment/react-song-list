@@ -1,16 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import DropDownButtonContainer from './containers/DropDownButtonContainer';
-import AddPlaylistContainer from './containers/AddPlaylistContainer';
-import AddSongContainer from './containers/AddSongContainer';
-import SongsGloballyContainer from './containers/SongsGloballyContainer';
-import PlaylistContainer from './containers/PlaylistContainer';
 import Header from './components/Header';
-import { applyMiddleware, createStore } from 'redux';
-import { Provider } from 'react-redux'
+import AddButtons from './components/AddButtons';
+import DragSelector from './components/DragSelector';
+
 import logger from 'redux-logger'
-import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './logic/reducer';
+import { applyMiddleware, createStore } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
   reducer,
@@ -23,36 +20,11 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <SongsGloballyContainer />
-  </Provider>,
-  document.getElementById('songs-globally')
+  <AddButtons store={store} />,
+  document.getElementById('add-buttons')
 );
 
 ReactDOM.render(
-  <Provider store={store}>
-    <PlaylistContainer />
-  </Provider>,
-  document.getElementById('playlist')
-);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <DropDownButtonContainer />
-  </Provider>,
-  document.getElementById('playlists')
-);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <AddSongContainer />
-  </Provider>,
-  document.getElementById('add-song')
-);
-
-ReactDOM.render(
-  <Provider store={store}>
-    <AddPlaylistContainer />
-  </Provider>,
-  document.getElementById('add-playlist')
+  <DragSelector store={store} />,
+  document.getElementById('drag-selector')
 );

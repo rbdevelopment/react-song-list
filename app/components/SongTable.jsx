@@ -35,7 +35,7 @@ const SongTable = ({ songs }) => {
 
     return <table className="table table-condensed song-list">
         <thead>{head}</thead>
-        <tbody>{collection}</tbody>
+        <tbody className="drag-container">{collection}</tbody>
         <tfoot>{footer}</tfoot>
     </table>;
 }
