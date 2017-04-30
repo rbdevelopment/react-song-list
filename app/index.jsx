@@ -5,6 +5,7 @@ import AddPlaylistContainer from './containers/AddPlaylistContainer';
 import AddSongContainer from './containers/AddSongContainer';
 import SongsGloballyContainer from './containers/SongsGloballyContainer';
 import PlaylistContainer from './containers/PlaylistContainer';
+import Header from './components/Header';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
@@ -14,6 +15,11 @@ import reducer from './logic/reducer';
 const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(logger))
+);
+
+ReactDOM.render(
+  <Header />,
+  document.getElementById('info-container')
 );
 
 ReactDOM.render(
