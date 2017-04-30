@@ -11,12 +11,12 @@ class DropDownButton extends React.Component {
         this.state = {
             expanded: false,
             items: this.prepareData(props.items) || [],
-            content: this.props.selectedPlaylist
+            content: this.props.selectedPlaylist || 'select playlist'
         };
     }
     componentWillReceiveProps = (nextProps) => this.setState({
         items: this.prepareData(nextProps.items) || [],
-        content: nextProps.selectedPlaylist
+        content: nextProps.selectedPlaylist || 'select playlist'
     });
     prepareData = (items = []) => items.map((item, index) => ({ key: index, value: item }))
     expand = () => this.setState({ expanded: true });

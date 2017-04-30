@@ -2,8 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 class SongTable extends React.Component {
     render() {
-        let collection = null;
-        if (this.props.songs) {
+        const head = <tr>
+            <th>Remove</th>
+            <th>Title</th>
+            <th>Artist</th>
+            <th>Year</th>
+        </tr>;
+
+        if (!this.props.name) {
+            return <table className="table table-condensed song-list">
+                <thead>{head}</thead>
+            </table>
+        }
+
+        let collection = <tr className='immovable'>
+            <td colSpan="4"></td>
+        </tr>;
+
+        if (this.props.songs && this.props.songs.length) {
             collection = this.props.songs.map((song, index) => {
                 return <tr key={index}>
                     <td>
@@ -26,20 +42,11 @@ class SongTable extends React.Component {
             </td>
         </tr>;
 
-        const head = <tr>
-            <th>Remove</th>
-            <th>Title</th>
-            <th>Artist</th>
-            <th>Year</th>
-        </tr>;
-
         return <table className="table table-condensed song-list">
             <thead>{head}</thead>
             <tbody className="drag-container" id={this.props.id}>
-                <tr className='immovable'>
-                    <td colSpan="4"></td>
-                </tr>
-                {collection}</tbody>
+                {collection}
+            </tbody>
             <tfoot>{footer}</tfoot>
         </table>;
     }
@@ -47,6 +54,7 @@ class SongTable extends React.Component {
 
 SongTable.propTypes = {
     songs: PropTypes.array,
+    name: PropTypes.string,
     id: PropTypes.string
 };
 

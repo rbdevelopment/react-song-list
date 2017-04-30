@@ -5,7 +5,7 @@ const initialState = {
     songs: [
         { title: 'song 1', artist: 'artist', year: 2005 },
         { title: 'song 2', artist: 'second', year: 2003 }],
-    selectedPlaylistName: 'select playlist',
+    selectedPlaylistName: undefined,
     selectedPlaylistValue: undefined,
     playlistPanelVisible: false,
     songPanelVisible: false
