@@ -38,9 +38,12 @@ describe('reducer function', () => {
 
     it('should add a song with the add song action',
         () => {
-            const result = reducer({ songs: [] }, actions.addSong('song title', 'song artist', 1992));
+            const result = reducer({ songNumber: 30, songs: [] },
+                actions.addSong('song title', 'song artist', 1992));
+
             expect(result).toEqual({
-                songs: [{ title: 'song title', artist: 'song artist', year: 1992 }]
+                songNumber: 31,
+                songs: [{ id: 31, title: 'song title', artist: 'song artist', year: 1992 }]
             });
         });
 
