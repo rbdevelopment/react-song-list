@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const SongTable = ({ songs }) => {
     let collection = null;
-    if (songs.length) {
+    if (songs) {
         collection = songs.map((song, index) => {
             return <tr key={index}>
                 <td>
@@ -17,16 +17,26 @@ const SongTable = ({ songs }) => {
             </tr>
         });
     }
+
+    const footer = <tr>
+        <td colSpan="4">
+            <div className="text-right">
+                <button className="btn btn-danger">remove this list</button>
+            </div>
+        </td>
+    </tr>;
+
+    const head = <tr>
+        <th>Remove</th>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>Year</th>
+    </tr>;
+
     return <table className="table table-condensed song-list">
-        <thead>
-            <tr>
-                <th>Remove</th>
-                <th>Title</th>
-                <th>Artist</th>
-                <th>Year</th>
-            </tr>
-        </thead>
+        <thead>{head}</thead>
         <tbody>{collection}</tbody>
+        <tfoot>{footer}</tfoot>
     </table>;
 }
 

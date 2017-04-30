@@ -6,7 +6,7 @@ import DropDownButtonContainer from './DropDownButtonContainer';
 describe('<DropDownButtonContainer />', () => {
     const renderComponent = () => {
         const mockStore = configureStore();
-        const store = mockStore({playlists: ['test'], selectedPlaylist: 'selected item'});
+        const store = mockStore({playlists: new Map([['test', []]]), selectedPlaylistName: 'selected item'});
         const renderer = ReactShallowRenderer.createRenderer();
         renderer.render(<DropDownButtonContainer store={store} />);
         return renderer.getRenderOutput();

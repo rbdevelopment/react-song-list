@@ -4,6 +4,7 @@ import DropDownButtonContainer from './containers/DropDownButtonContainer';
 import AddPlaylistContainer from './containers/AddPlaylistContainer';
 import AddSongContainer from './containers/AddSongContainer';
 import SongsGloballyContainer from './containers/SongsGloballyContainer';
+import PlaylistContainer from './containers/PlaylistContainer';
 import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux'
 import logger from 'redux-logger'
@@ -20,6 +21,13 @@ ReactDOM.render(
     <SongsGloballyContainer />
   </Provider>,
   document.getElementById('songs-globally')
+);
+
+ReactDOM.render(
+  <Provider store={store}>
+    <PlaylistContainer />
+  </Provider>,
+  document.getElementById('playlist')
 );
 
 ReactDOM.render(

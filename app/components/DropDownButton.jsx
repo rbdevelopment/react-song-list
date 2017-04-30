@@ -14,16 +14,11 @@ class DropDownButton extends React.Component {
             content: this.props.selectedPlaylist
         };
     }
-
-    componentWillReceiveProps = (nextProps) => {
-        this.setState({
-            items: this.prepareData(nextProps.items) || [],
-            content: nextProps.selectedPlaylist
-        });
-    }
-    prepareData = (items = []) => items.map((item, index) => {
-        return { key: index, value: item };
+    componentWillReceiveProps = (nextProps) => this.setState({
+        items: this.prepareData(nextProps.items) || [],
+        content: nextProps.selectedPlaylist
     });
+    prepareData = (items = []) => items.map((item, index) => ({ key: index, value: item }))
     expand = () => this.setState({ expanded: true });
     collapse = () => this.setState({ expanded: false });
     onClick = () => {
@@ -38,8 +33,13 @@ class DropDownButton extends React.Component {
         this.props.onItemChanged(value);
         this.collapse();
     }
-
     render() {
+        const collection = this.state.items.map((item) => {
+            return <li key={item.key}><a onClick={this.select(item.value)} href="#">
+                {item.value}</a>
+            </li>;
+        });
+
         return (
             <div className={dropDownClassName(this.state.expanded)}>
                 <button
@@ -49,12 +49,7 @@ class DropDownButton extends React.Component {
                     aria-expanded={this.state.expanded}
                     onClick={this.onClick}><DropDownButtonContent text={this.state.content} /></button>
                 <ul className="dropdown-menu">
-                    {this.state.items.map((item) => {
-                        return <li key={item.key}><a
-                            onClick={this.select(item.value)} href="#">
-                            {item.value}</a>
-                        </li>;
-                    })}
+                    {collection}
                 </ul>
             </div>
         )

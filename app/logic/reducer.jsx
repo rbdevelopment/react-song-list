@@ -1,9 +1,10 @@
 import * as constants from './constants';
 
 const initialState = {
-    playlists: ['wedding', 'gig in Manchester'],
+    playlists: new Map(),
     songs: [],
-    selectedPlaylist: 'select playlist',
+    selectedPlaylistName: 'select playlist',
+    selectedPlaylistValue: undefined,
     playlistPanelVisible: false,
     songPanelVisible: false
 };
@@ -35,14 +36,19 @@ const reducer = (state = initialState, action) => {
                 default:
                     return state;
             }
-        }   
+        }
         case constants.SELECT_PLAYLIST: {
-            return { ...state, selectedPlaylist: action.name };
+            const found = (state.playlists || new Map()).get(action.name);
+            let name = undefined;
+            if (found) {
+                name = action.name;
+            }
+            return { ...state, selectedPlaylistName: name, selectedPlaylistValue: found };
         }
         case constants.ADD_PLAYLIST: {
-            const playlists = new Array(...state.playlists);
-            playlists.push(action.name);
-            return { ...state, playlists: playlists };
+            const playlistsMap = new Map(state.playlists);
+            playlistsMap.set(action.name, []);
+            return { ...state, playlists: playlistsMap };
         }
         case constants.ADD_SONG: {
             const song = { title: action.title, artist: action.artist, year: action.year };

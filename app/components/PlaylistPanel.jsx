@@ -5,6 +5,7 @@ import { panelClassName } from './ui';
 class PlaylistPanel extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             name: ''
         };
@@ -15,13 +16,10 @@ class PlaylistPanel extends React.Component {
         this.clearName();
     }
     onAddButton = () => {
-        this.props.onAdd({name: this.state.name});
+        this.props.onAdd({ name: this.state.name });
         this.clearName();
     }
-    onChange = (e) => {
-        const value = e.target.value;
-        this.setState({ name: value });
-    }
+    onChange = (e) => this.setState({ name: e.target.value });
     componentWillReceiveProps = (nextProps) => {
         if (!nextProps.expanded)
             this.clearName();

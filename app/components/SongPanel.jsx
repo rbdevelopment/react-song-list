@@ -5,6 +5,7 @@ import { panelClassName } from './ui';
 class SongPanel extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             title: '',
             artist: '',

@@ -21,7 +21,8 @@ const AddPanel = ({ panelType, expanded, onButtonClick, onAdd, onCancel }) => {
             return (
                 <section>
                     <button onClick={onButtonClick} className="btn btn-primary"><i className="glyphicon glyphicon-plus"></i> add song</button>
-                    <SongPanel expanded={expanded}
+                    <SongPanel
+                        expanded={expanded}
                         onAdd={onAdd}
                         onCancel={onCancel} />
                 </section>
