@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header';
 import AddButtons from './components/AddButtons';
-import DragSelector from './components/DragSelector';
-
+import DragSelectorContainer from './containers/DragSelectorContainer';
+import { Provider } from 'react-redux'
 import logger from 'redux-logger'
 import reducer from './logic/reducer';
 import { applyMiddleware, createStore } from 'redux';
@@ -25,6 +25,8 @@ ReactDOM.render(
 );
 
 ReactDOM.render(
-  <DragSelector store={store} />,
+  <Provider store={store}>
+  <DragSelectorContainer />
+  </Provider>,
   document.getElementById('drag-selector')
 );

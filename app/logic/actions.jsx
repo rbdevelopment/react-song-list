@@ -6,6 +6,10 @@ exports.addSong = (title, artist, year) => ({
   artist,
   year
 });
+exports.addSongToPlaylist = (songId) => ({
+  type: constants.ADD_SONG_TO_PLAYLIST,
+  songId
+});
 
 exports.removeSong = (title, artist, year) => ({
   type: constants.REMOVE_SONG,

@@ -21,7 +21,7 @@ class SongTable extends React.Component {
 
         if (this.props.songs && this.props.songs.length) {
             collection = this.props.songs.map((song, index) => {
-                return <tr key={index}>
+                return <tr key={index} id={song.id}>
                     <td>
                         <button className="btn btn-danger">
                             <i className="glyphicon glyphicon-remove"></i>

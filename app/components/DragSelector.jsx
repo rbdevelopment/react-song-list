@@ -1,5 +1,4 @@
 import React from 'react';
-import { Provider } from 'react-redux'
 import PropTypes from 'prop-types';
 import Dragula from 'react-dragula';
 import DropDownButtonContainer from '../containers/DropDownButtonContainer';
@@ -22,30 +21,31 @@ class DragSelector extends React.Component {
                 return el.className === 'immovable';
             }
         };
-        Dragula(containers, options);
+
+        const onDrop = this.props.onDrop;
+        const drake = Dragula(containers, options);
+        drake.on('drop', function (el) {
+            onDrop(parseInt(el.id));
+            this.cancel();
+        });
     }
     render() {
         return <div className="row">
             <div className="col-xs-6">
                 <h4 className="text-center">ALL YOUR SONGS</h4>
-                <Provider store={this.props.store}>
-                    <SongsGloballyContainer />
-                </Provider>
+                <SongsGloballyContainer />
             </div>
             <div className="col-xs-6">
-                <Provider store={this.props.store}>
-                    <DropDownButtonContainer />
-                </Provider>
-                <Provider store={this.props.store}>
-                    <PlaylistContainer />
-                </Provider>
+                <DropDownButtonContainer />
+                <PlaylistContainer />
             </div>
         </div>
     }
 }
 
 DragSelector.propTypes = {
-    store: PropTypes.object
+    store: PropTypes.object,
+    onDrop: PropTypes.func
 };
 
 export default DragSelector;

@@ -1,8 +1,9 @@
 
 exports.SELECT_PLAYLIST = 'select playlist';
 exports.ADD_SONG = 'add song';
+exports.ADD_SONG_TO_PLAYLIST = 'add song to playlist';
+exports.REMOVE_SONG_FROM_PLAYLIST = 'remove song from playlist';
 exports.REMOVE_SONG = 'remove song';
-exports.REMOVE_SONG_GLOBALLY = 'remove song globally';
 exports.ADD_PLAYLIST = 'add playlist';
 exports.REMOVE_PLAYLIST = 'remove playlist';
 exports.VISIBILITY = 'visibility';
