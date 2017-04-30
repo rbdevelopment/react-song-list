@@ -54,12 +54,45 @@ const reducer = (state = initialState, action) => {
             playlistsNewMap.set(action.name, []);
             return { ...state, playlists: playlistsNewMap };
         }
+        case constants.REMOVE_PLAYLIST: {
+            const playlistsNewMap = new Map(state.playlists);
+            playlistsNewMap.delete(action.name);
+            return {
+                ...state,
+                playlists: playlistsNewMap,
+                selectedPlaylistName: undefined,
+                selectedPlaylistValue: undefined
+            };
+        }
+        case constants.REMOVE_SONG_FROM_PLAYLIST: {
+            const name = state.selectedPlaylistName;
+            if (name) {
+                const songId = action.songId;
+                const playlistFound = state.playlists.get(name);
+                if (playlistFound) {
+                    const playlistNewArray = playlistFound.filter((s) => s.id !== songId);
+                    const playlistsNewMap = new Map(state.playlists);
+                    playlistsNewMap.set(name, playlistNewArray);
+                    return {
+                        ...state,
+                        playlists: playlistsNewMap,
+                        selectedPlaylistValue: playlistNewArray
+                    };
+                }
+            }
+            break;
+        }
         case constants.ADD_SONG: {
             const nextNumber = state.songNumber + 1;
             const song = { id: nextNumber, title: action.title, artist: action.artist, year: action.year };
             const songs = new Array(...state.songs);
             songs.push(song);
             return { ...state, songs: songs, songNumber: nextNumber };
+        }
+        case constants.REMOVE_SONG: {
+            const songs = state.songs.filter((s) => s.id !== action.songId);
+            console.log(state.songs, action.songId);
+            return { ...state, songs: songs };
         }
         case constants.ADD_SONG_TO_PLAYLIST: {
             if (state.selectedPlaylistName) {

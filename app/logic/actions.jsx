@@ -6,23 +6,20 @@ exports.addSong = (title, artist, year) => ({
   artist,
   year
 });
+
 exports.addSongToPlaylist = (songId) => ({
   type: constants.ADD_SONG_TO_PLAYLIST,
-  songId
+  songId: Number.parseInt(songId)
 });
 
-exports.removeSong = (title, artist, year) => ({
+exports.removeSongFromPlaylist = (songId) => ({
+  type: constants.REMOVE_SONG_FROM_PLAYLIST,
+  songId: Number.parseInt(songId)
+});
+
+exports.removeSong = (songId) => ({
   type: constants.REMOVE_SONG,
-  title,
-  artist,
-  year
-});
-
-exports.removeSongGlobally = (title, artist, year) => ({
-  type: constants.REMOVE_SONG_GLOBALLY,
-  title,
-  artist,
-  year
+  songId: Number.parseInt(songId)
 });
 
 exports.addPlaylist = (name) => ({

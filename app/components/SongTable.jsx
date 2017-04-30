@@ -1,6 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 class SongTable extends React.Component {
+    removeSong = (songId) => (e) => {
+        e.preventDefault();
+        this.props.removeSong(songId);
+    }
+    removePlaylist = (name) => (e) => {
+        e.preventDefault();
+        this.props.removePlaylist(name);
+    }
     render() {
         const head = <tr>
             <th>Remove</th>
@@ -23,7 +31,7 @@ class SongTable extends React.Component {
             collection = this.props.songs.map((song, index) => {
                 return <tr key={index} id={song.id}>
                     <td>
-                        <button className="btn btn-danger">
+                        <button onClick={this.removeSong(song.id)} className="btn btn-danger">
                             <i className="glyphicon glyphicon-remove"></i>
                         </button>
                     </td>
@@ -34,13 +42,16 @@ class SongTable extends React.Component {
             });
         }
 
-        const footer = <tr>
-            <td colSpan="4">
-                <div className="text-right">
-                    <button className="btn btn-danger">remove this list</button>
-                </div>
-            </td>
-        </tr>;
+        let footer = null;
+        if (this.props.removePlaylist) {
+            footer = <tr>
+                <td colSpan="4">
+                    <div className="text-right">
+                        <button onClick={this.removePlaylist(this.props.name)} className="btn btn-danger">remove this list</button>
+                    </div>
+                </td>
+            </tr>;
+        }
 
         return <table className="table table-condensed song-list">
             <thead>{head}</thead>
@@ -55,7 +66,9 @@ class SongTable extends React.Component {
 SongTable.propTypes = {
     songs: PropTypes.array,
     name: PropTypes.string,
-    id: PropTypes.string
+    id: PropTypes.string,
+    removeSong: PropTypes.func,
+    removePlaylist: PropTypes.func,
 };
 
 export default SongTable;
