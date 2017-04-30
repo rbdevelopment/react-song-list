@@ -2,7 +2,9 @@ import * as constants from './constants';
 
 const initialState = {
     playlists: new Map(),
-    songs: [],
+    songs: [
+        { title: 'song 1', artist: 'artist', year: 2005 },
+        { title: 'song 2', artist: 'second', year: 2003 }],
     selectedPlaylistName: 'select playlist',
     selectedPlaylistValue: undefined,
     playlistPanelVisible: false,

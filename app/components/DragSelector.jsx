@@ -1,17 +1,28 @@
 import React from 'react';
 import { Provider } from 'react-redux'
 import PropTypes from 'prop-types';
-//import * as ReactDOM from 'react-dom';
-//import Dragula from 'react-dragula';
+import Dragula from 'react-dragula';
 import DropDownButtonContainer from '../containers/DropDownButtonContainer';
 import SongsGloballyContainer from '../containers/SongsGloballyContainer';
 import PlaylistContainer from '../containers/PlaylistContainer';
 
 class DragSelector extends React.Component {
     componentDidMount = () => {
-        //drag-container
-        //var container = ReactDOM.findDOMNode(this);
-        //dragula([container]);
+        const containers = [];
+        let options = {
+            isContainer: function (el) {
+                return el.classList.contains('drag-container');
+            },
+            copy: true,
+            revertOnSpill: true,
+            accepts: function (el, target) {
+                return target.id === 'playlists'
+            },
+            invalid: function (el) {
+                return el.className === 'immovable';
+            }
+        };
+        Dragula(containers, options);
     }
     render() {
         return <div className="row">
