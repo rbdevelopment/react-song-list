@@ -14,22 +14,18 @@ describe('addSong action', () => {
 
 describe('removeSong action', () => {
     it('should set action type to remove song', () => {
-        expect(actions.removeSong('Merry go round', 'Popular singers', 1901)).toEqual({
+        expect(actions.removeSong(12)).toEqual({
             type: constants.REMOVE_SONG,
-            title: 'Merry go round',
-            artist: 'Popular singers',
-            year: 1901
+            songId: 12,
         });
     });
 });
 
-describe('removeSongGlobally action', () => {
-    it('should set action type to remove song globally', () => {
-        expect(actions.removeSongGlobally('Merry go round', 'Popular singers', 1901)).toEqual({
-            type: constants.REMOVE_SONG_GLOBALLY,
-            title: 'Merry go round',
-            artist: 'Popular singers',
-            year: 1901
+describe('removeSongFromPlaylist action', () => {
+    it('should set action type to remove song from the playlist', () => {
+        expect(actions.removeSongFromPlaylist(21)).toEqual({
+            songId: 21,
+            type: constants.REMOVE_SONG_FROM_PLAYLIST
         });
     });
 });
