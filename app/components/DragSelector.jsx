@@ -31,11 +31,11 @@ class DragSelector extends React.Component {
     }
     render() {
         return <div className="row">
-            <div className="col-xs-6">
+            <div className="col-md-6">
                 <h4 className="text-center">ALL YOUR SONGS</h4>
                 <SongsGloballyContainer />
             </div>
-            <div className="col-xs-6">
+            <div className="col-md-6">
                 <DropDownButtonContainer />
                 <PlaylistContainer />
             </div>
