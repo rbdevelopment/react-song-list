@@ -14,6 +14,23 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
+    const removeSongFromPlaylist = (passedInState, name, songId) => {
+        if (name) {
+            const playlistFound = passedInState.playlists.get(name);
+            if (playlistFound) {
+                const playlistNewArray = playlistFound.filter((s) => s.id !== songId);
+                const playlistsNewMap = new Map(passedInState.playlists);
+                playlistsNewMap.set(name, playlistNewArray);
+                return {
+                    ...passedInState,
+                    playlists: playlistsNewMap,
+                    selectedPlaylistValue: playlistNewArray
+                };
+            }
+        }
+        return passedInState;
+    }
+
     switch (action.type) {
         case constants.VISIBILITY: {
             switch (action.panelType) {
@@ -65,22 +82,11 @@ const reducer = (state = initialState, action) => {
             };
         }
         case constants.REMOVE_SONG_FROM_PLAYLIST: {
-            const name = state.selectedPlaylistName;
-            if (name) {
-                const songId = action.songId;
-                const playlistFound = state.playlists.get(name);
-                if (playlistFound) {
-                    const playlistNewArray = playlistFound.filter((s) => s.id !== songId);
-                    const playlistsNewMap = new Map(state.playlists);
-                    playlistsNewMap.set(name, playlistNewArray);
-                    return {
-                        ...state,
-                        playlists: playlistsNewMap,
-                        selectedPlaylistValue: playlistNewArray
-                    };
-                }
-            }
-            break;
+            return removeSongFromPlaylist(
+                state,
+                state.selectedPlaylistName,
+                action.songId
+            );
         }
         case constants.ADD_SONG: {
             const nextNumber = state.songNumber + 1;
@@ -91,8 +97,12 @@ const reducer = (state = initialState, action) => {
         }
         case constants.REMOVE_SONG: {
             const songs = state.songs.filter((s) => s.id !== action.songId);
-            console.log(state.songs, action.songId);
-            return { ...state, songs: songs };
+            let stateNew = { ...state, songs: songs };
+            const names = new Array(...stateNew.playlists.keys());
+            names.forEach((n) => {
+                stateNew = removeSongFromPlaylist(stateNew, n, action.songId);
+            });
+            return stateNew;
         }
         case constants.ADD_SONG_TO_PLAYLIST: {
             if (state.selectedPlaylistName) {
